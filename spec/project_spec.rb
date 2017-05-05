@@ -24,11 +24,12 @@ describe(Project) do
 
   describe("#save") do
     it ("saves the projects into the db") do
-      test_project = Project.new({:id => 1, :name => "paint the fence"})
+      test_project = Project.new({:id => nil, :name => "paint the fence"})
       test_project.save()
       expect(Project.all()).to(eq([test_project]))
     end
   end
+
   describe("#==") do
    it("is the same project if it has the same name + id") do
      test_project1 = Project.new({:id => nil, :name => "paint the fence"})
@@ -37,5 +38,14 @@ describe(Project) do
    end
  end
 
+ describe(".find") do
+    it("returns a project by its ID") do
+      test_project = Project.new({:id => nil, :name => "paint the fence"})
+      test_project.save()
+      test_project2 = Project.new({:id => nil, :name => "wash the wall"})
+      test_project2.save()
+      expect(Project.find(test_project2.id())).to(eq(test_project2))
+    end
+  end
 
 end
