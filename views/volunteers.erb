@@ -4,11 +4,9 @@
   <h3>Your volunteers: </h3>
   <ul>
     <% @volunteers.each() do |volunteer| %>
-    <li><a href="/volunteer/<%= volunteer.id() %>"><%= volunteer.name() %></a></li>
+    <li><%= volunteer.name() %></li>
     <% end %>
   </ul>
-
-
 
 <% else %>
   <p>There are no volunteers yet!</p>

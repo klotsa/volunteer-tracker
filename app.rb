@@ -29,13 +29,20 @@ post("/projects_form") do
 end
 
 get('/volunteers') do
- @volunteers = Project.all()
+ @volunteers = Volunteer.all()
  erb(:volunteers)
 end
 
-get("/volunteer/:id") do
+get('/volunteers/:id/edit') do
+  @volunteer = Volunteer.find(params['id'].to_i())
+  erb(:volunteer_edit)
+end
+
+delete("/volunteers/:id") do
   @volunteer = Volunteer.find(params.fetch("id").to_i())
-  erb(:volunteer)
+  @volunteer.delete()
+  @volunteers = Volunteer.all()
+  erb(:index)
 end
 
 get("/projects/:id") do

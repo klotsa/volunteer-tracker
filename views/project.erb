@@ -17,10 +17,8 @@
 
 <form action="/volunteers" method="post">
   <input id="project_id" name="project_id" type="hidden" value="<%= @project.id() %>">
-
   <label for="name">Name:</label>
   <input id="name" name="name" type="text">
-
   <button type="submit">Add a volunteer</button>
 </form>
 
@@ -31,6 +29,7 @@
 <div class="container">
   <button type="button" name="button"><a href="/">Home</a></button>
   <button type="button" name="button"><a href="/projects">View all projects</a></button>
+  <button type="button" name="button"><a href="/volunteers">View all volunteers</a></button>
   <button type="button" name="button"><a href="/projects/new">Add a new project</a></button>
   <button type="button" name="button"><a href='/projects/<%= @project.id() %>/edit'>Edit <%= @project.name() %> project</a></button>
 
