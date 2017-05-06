@@ -42,6 +42,6 @@ describe('adding volunteers to a project', {:type => :feature}) do
     visit("/projects/#{test_project.id()}")
     fill_in("name", {:with => "Bob"})
     click_button("Add a volunteer")
-    expect(page).to have_content("Success")
+    expect(page).to have_content("Here are all the volunteers in this project:")
   end
 end
